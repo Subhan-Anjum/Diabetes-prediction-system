@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    </link>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <title>Diabetes Prediction System</title>
+    <script src="/static/popup.js"></script>
+</head>
+
+
+
+<body id="body-pd">
+    <header class="header" id="header">
+        <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
+        <div class="header_img"> 
+            <!-- <img src="https://i.imgur.com/hczKIze.jpg" alt="">  -->
+        </div>
+    </header>
+    <div class="l-navbar" id="nav-bar" style="padding-bottom: 20px">
+        <nav class="nav">
+            <div> <a href="" class="nav_logo"> <i class='bx bx-layer nav_logo-icon'></i> <span
+                        class="nav_logo-name">Diabetes <br> Prediction <br> System</span> </a>
+                <div class="nav_list"> <a href="/checkPatient" class="nav_link active"> <i
+                            class='bx bx-user nav_icon'></i>
+                        <span class="nav_name">Check patient</span> </a>
+                    <!-- <a href="#" class="nav_link"> <i
+                                class='bx bx-user nav_icon'></i> <span class="nav_name">Users</span> </a> <a href="#"
+                            class="nav_link"> <i class='bx bx-message-square-detail nav_icon'></i> <span
+                                class="nav_name">Messages</span> </a> <a href="#" class="nav_link"> <i
+                                class='bx bx-bookmark nav_icon'></i> <span class="nav_name">Bookmark</span> </a> <a
+                            href="#" class="nav_link"> <i class='bx bx-folder nav_icon'></i> <span
+                                class="nav_name">Files</span> </a> <a href="#" class="nav_link"> <i
+                                class='bx bx-bar-chart-alt-2 nav_icon'></i> <span class="nav_name">Stats</span> </a> -->
+                </div>
+            </div>
+            <!-- <a href="#" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span
+                        class="nav_name">SignOut</span> </a> -->
+        </nav>
+    </div>
+    </div>
+
+    <div class=" bg-light" >
+        <h4>Main </h4>
+    </div>
+    <div class=" bg-light" >
+        <h6>Main </h6>
+    </div>
+
+    <div class="row" style="margin-top: 25px">
+        <h2>Patient's Information</h2>
+        
+    </div>
+    <form action="/" method="POST">
+        <div class="form">
+            <div class="row">
+                <div class="col"> <b>Name </b> <br>
+                    <input type="text" name="name" style="border-radius: 5px;" required="required">
+                </div>
+                <div class="col"><b>Age</b> <br>
+                    <input type="number" name="age" min="18" max="85" style="border-radius: 5px;" required>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 50px;">
+                <div class="col">
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+                    <b>BMI</b>
+
+                    <div class="popup" onclick="myFunction()">&nbsp; ?
+                        <span class="popuptext addMore" id="bmi">
+                            <p>Body Mass Index is a value derived from the mass and height of a person.</p>
+                        </span>
+                    </div>
+
+                    <br>
+                    <input type="number" min="10" max="60" name="bmi" style="border-radius: 5px;" required>
+
+                </div>
+                <div class="col">
+                    <label><b>High Cholestrol</b></label>
+                    <div class="popup" onclick="myFunction1()">&nbsp; ?
+                        <span class="popuptext addMore" id="chol">
+                            <p>Based on cholestrol levels of 5 years</p>
+                        </span>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="checkbox" class="radio" name="chol" value="1"  />
+                            Yes
+                        </label>
+                        <br>
+                        <label>
+                            <input type="checkbox" class="radio" name="chol" value="0" checked  />
+                            No
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 50px;">
+                <label><b>Gender</b></label>
+                <div class="col">
+                    <div>
+                        <label>
+                            <input type="checkbox" name="gender" class="radio" value="1"  />
+                            Male
+                        </label>
+                        <br>
+                        <label>
+                            <input type="checkbox" name="gender" class="radio" value="0" checked />
+                            Female
+                        </label>
+                    </div>
+                </div>
+                <div class="col">
+                    <label><b>Smoker</b></label>
+                    <div class="popup" onclick="myFunction2()">&nbsp; ?
+                        <span class="popuptext addMore" id="smoker">
+                            <p>Have you smoked at least 100 cigarettes in your entire life? [Note: 5 packs = 100
+                                cigarettes]</p>
+                        </span>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="checkbox" name="smoker" class="radio" value="1"  />
+                            Yes
+                        </label>
+                        <br>
+                        <label>
+                            <input type="checkbox" name="smoker" class="radio" value="0" checked/>
+                            No
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 50px;">
+
+                <div class="col">
+                    <label><b>Physical Activity</b></label>
+                    <div class="popup" onclick="myFunction3()">&nbsp; ?
+                        <span class="popuptext addMore" id="pactivity">
+                            <p>Physical activity in past 30 days - not including job</p>
+                        </span>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="checkbox" name="pactivity" class="radio" value="1"  />
+                            Yes
+                        </label>
+                        <br>
+                        <label>
+                            <input type="checkbox" name="pactivity" class="radio" value="0" checked />
+                            No
+                        </label>
+                    </div>
+                </div>
+                <div class="col">
+                    <label><b>Heavy Alcohol consumption</b></label>
+
+                    <div class="popup" onclick="myFunction4()">&nbsp; ?
+                        <span class="popuptext addMore" id="alcohol">
+                            <p>Heavy drinkers (adult men having more than 14 drinks per week and adult women having more
+                                than 7 drinks per week)</p>
+                        </span>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="checkbox" name="alcohol" class="radio" value="1" " />
+                            Yes
+                        </label>
+                        <br>
+                        <label>
+                            <input type="checkbox" name="alcohol" class="radio" value="0" checked />
+                            No
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 50px;">
+
+                <div class="col">
+                    <label><b>General Health</b></label>
+                    <div class="popup" onclick="myFunction5()">&nbsp; ?
+                        <span class="popuptext addMore" id="ghealth">
+                            <p>1 = excellent 2 = very good 3 = good 4 = fair 5 = poor</p>
+                        </span>
+                    </div>
+                    <div>
+                        <input name="ghealth" type="range" min="1" max="5" step="1" id="ghealth"
+                            style="border-radius: 5px;" oninput="ghealth_disp.value = ghealth.value" />
+                        <output id="ghealth_disp"></output>
+                    </div>
+                </div>
+                <div class="col">
+                    <label><b>Mental Health</b></label>
+                    <div class="popup" onclick="myFunction6()">&nbsp; ?
+                        <span class="popuptext addMore" id="mhealth">
+                            <p>Now thinking about your mental health, which includes stress, depression, and problems
+                                with emotions, for how many days during the past 30 days was your mental health
+                                good?</p>
+                        </span>
+                    </div>
+                    <div>
+                        <input name="mhealth" type="range" min="1" max="30" step="1" id="mhealth"
+                            style="border-radius: 5px;" oninput="mhealth_disp.value = mhealth.value" />
+                        <output id="mhealth_disp"></output>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 50px;">
+
+                <div class="col">
+                    <label><b>Physical Health</b></label>
+                    <div class="popup" onclick="myFunction10()">&nbsp; ?
+                        <span class="popuptext addMore" id="phealth">
+                            <p>Now thinking about your physical health, which includes physical illness and injury, for
+                                how many days during the past 30 days was your physical health good? scale 1-30 days
+                            </p>
+                        </span>
+                    </div>
+                    <div>
+                        <input name="phealth" type="range" min="1" max="30" step="1" id="phealth"
+                            style="border-radius: 5px;" oninput="phealth_disp.value = phealth.value" />
+                        <output id="phealth_disp"></output>
+                    </div>
+                </div>
+                <div class="col">
+                    <label><b>Difficulty in walk</b></label>
+                    <div class="popup" onclick="myFunction7()">&nbsp; ?
+                        <span class="popuptext addMore" id="walk">
+                            <p>Do you have serious difficulty walking or climbing stairs?</p>
+                        </span>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="checkbox" name="walking" class="radio" value="1" " />
+                            Yes
+                        </label>
+                        <br>
+                        <label>
+                            <input type="checkbox" name="walking" class="radio" value="0" checked />
+                            No
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 50px;">
+                <!--Education level (EDUCA see codebook) scale 1-6 -->
+                <div class="col">
+                    <label><b>Education</b></label>
+                    <div class="popup" onclick="myFunction8()">&nbsp; ?
+                        <span class="popuptext addMore" id="education">
+                            <p>2=Never attended school or only kindergarten, &nbsp; 3=Grades 1 through 8(Elementary), 4=Grades 9 through 12(Some high school), 5=University 1 to 4 years (Some college or technical school), 6=University 4 years or more(Post Graduate)</p>
+                        </span>
+                    </div>
+                    <div>
+                        <input name="education" type="range" min="2" max="6" step="1" id="education"
+                            style="border-radius: 5px;" oninput="education_disp.value = education.value" />
+                        <output id="education_disp"></output>
+                    </div>
+                </div>
+                <div class="col">
+                    <label><b>Fruits</b></label>
+                    <div class="popup" onclick="myFunction9()">&nbsp; ?
+                        <span class="popuptext addMore" id="fruit">
+                            <p>Do you eat fruits daily?</p>
+                        </span>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="checkbox" name="fruit" class="radio" value="1" />
+                            Yes
+                        </label>
+                        <br>
+                        <label>
+                            <input type="checkbox" name="fruit" class="radio" value="0" checked />
+                            No
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 50px;">
+                <label><b>Blood Pressure</b></label>
+                <div class="col">
+                    <div>
+                        <label>
+                            <input type="checkbox" name="bloodpressure" class="radio" value="1"  />
+                            Yes
+                        </label>
+                        <br>
+                        <label>
+                            <input type="checkbox" name="bloodpressure" class="radio" value="0" checked />
+                            No
+                        </label>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <label><b>Heart Attack or Disease</b></label>
+                    <div>
+                        <label>
+                            <input type="checkbox" name="heart" class="radio" value="1" " />
+                            Yes
+                        </label>
+                        <br>
+                        <label>
+                            <input type="checkbox" name="heart" class="radio" value="0" checked />
+                            No
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row" style="margin-top: 50px;">
+                <div class="col">
+                    <label><b>Vegetables</b></label>
+                    <div class="popup" onclick="myFunction11()">&nbsp; ?
+                        <span class="popuptext addMore" id="veggies">
+                            <p>Do you eat vegetables daily?</p>
+                        </span>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="checkbox" name="veggies" class="radio" value="1" " />
+                            Yes
+                        </label>
+                        <br>
+                        <label>
+                            <input type="checkbox" name="veggies" class="radio" value="0" checked />
+                            No
+                        </label>
+                    </div>
+                </div>
+
+                
+            </div>
+
+            <div class="row" style="margin-top: 50px">
+
+                <div class="col-4"></div>
+                <div class="col-4"> <button type="submit" class="btn btn-primary"
+                        style="width: 200px;border-radius: 5px;margin-bottom: 20px; align-items: center;" onclick="loader()">Submit</button>
+                </div>
+                <div class="col-4"></div>
+
+            </div>
+        </div>
+    </form>
+
+</body>
+<script>
+    loader()
+    {
+        const div = document.createElement('body');
+
+  div.className = 'body';
+
+  div.innerHTML = `
+    
+<div class="book">
+  <div class="inner">
+    <div class="left"></div>
+    <div class="middle"></div>
+    <div class="right"></div>
+  </div>
+  <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</div><a class="dribbble" href="https://dribbble.com/shots/7199149-Book-Loader" target="_blank"><img src="https://dribbble.com/assets/logo-small-2x-9fe74d2ad7b25fba0f50168523c15fda4c35534f9ea0b1011179275383035439.png"/></a>
+  `;
+
+  document.getElementById('body-pd').append(body);
+
+    }
+</script>
+<script src="/static/script.js"></script>
+<script src="/static/check.js"></script>
+
+</html>
